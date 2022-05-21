@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'FirstAppapps.appsFirstappConfig'
+    'FirstApp.apps.FirstappConfig'
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'FirstProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r'C:\Python\logika\Web\DjangoProject\FirstProject\FirstApp\teplates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
