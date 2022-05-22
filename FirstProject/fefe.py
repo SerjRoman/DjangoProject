@@ -6,7 +6,7 @@ i = [("Peny", "Gog", 1970), ("Robert", "Mak", 1960), ("Pedro", "Sanches", 1111)]
 
 # cursor.execute('INSERT INTO Shows VALUES ("George", "Wolf", 1970)')
 cursor.executemany('INSERT INTO Shows VALUES (?, ?, ?)', i)
-cursor.execute('SELECT * FROM Shows')
+cursor.execute('SELECT 1 FROM Shows')
 print(cursor.fetchone())
 data = cursor.fetchall()
 print(type(data))
