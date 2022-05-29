@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'FirstApp.apps.FirstappConfig'
+    'FirstApp.apps.FirstappConfig',
+    'Regform.apps.RegformConfig'
 ]
 
 MIDDLEWARE = [

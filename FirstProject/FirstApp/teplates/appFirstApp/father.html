@@ -11,18 +11,30 @@
     <link rel="stylesheet" href="">
 </head>
 <body>
+        <nav class="top-menu">
+                <a class="navbar-logo" href=""><img src="{% static 'img/Logikahub.jpg' %}" alt="Logo"></a>
+            <ul class="menu-main">
+              <li><a href="" class="current">Home</a></li>
+              <li><a href="">Tops</a></li>
+              <li><a href="">Blog</a></li>
+              <li><a href="{% url 'reg' %}">Sign up/Sign in</a></li>
+            </ul>
+          </nav>
 
-    <aside>
+    <!-- <aside>
         <img src="{% static 'img/Logikahub.jpg' %}" alt="Logo">
         <span class="logo"></span>
         <h3>Навигация</h3>
         <ul>
-            <a href=""><li>Главная</li>></a>
-            <a href=""><li>Топ Книг</li>></a>
+            <a href="https://logikaschool.com"><li>Главная</li>></a>
+            <a href=""><li>Топы</li>></a>
             <a href=""><li>Аккаунт</li>></a>
         </ul>
+        <span class = "reg"></span>
+            <input type="text" placeholder="ИМЯ">
+            <input type="text" placeholder="фАмИлИя">
 
-        
+         -->
 
     </aside>
     <main>
