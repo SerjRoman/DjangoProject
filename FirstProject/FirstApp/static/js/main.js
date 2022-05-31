@@ -1,6 +1,5 @@
-
-function clickbutton(text) 
+function clickbutton() 
 {
     let div = document.createElement('a');
-    div.innerHTML = text;
+    div.innerHTML = 'f,dslfkdslfks';
 }
