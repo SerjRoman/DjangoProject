@@ -1,8 +1,9 @@
 from django.contrib import admin
 from django.urls import path
-from FirstApp.views import index
+from FirstApp.views import index, father 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
+    path('', father),
+    path('index/', index, name='index'), 
 ]

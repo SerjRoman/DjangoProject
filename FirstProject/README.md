@@ -1,6 +1,6 @@
-# Game
+# Django
 
-# git clone git@github.com:GameHeroesLogika/Game.git#Клонирует последнюю версию
+# git clone https://github.com/SerjRoman/DjangoProject #Клонирует последнюю версию
 
 git add файл # Добавляет в отслеживание указанный файл
 
