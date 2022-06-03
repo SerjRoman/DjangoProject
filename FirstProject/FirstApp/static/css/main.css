@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body{
 	background: #e0e3e5;
 	font-family: "Roboto", sans-serif, Helvetica, Arial;
@@ -59,7 +58,7 @@ body{
 	color: #ccc;
 	line-height: 2em;
 	padding: 10px 15px;
-	background: #212121
+	background: #212121;
 	text-decoration: none;
 	text-shadow: 2px 2px 3px #222;
 }
@@ -129,7 +128,7 @@ body{
 	margin-left: 5px;
 	transition: .3s;
 }
- 
+#DESCRIPTION{display: none;}
 
 @media screen and (max-width: 1152px){
 	.menu{
@@ -178,10 +177,9 @@ body{
 		display: none;
 	}
 } 
-=======
-body {
-    background-color: cornflowerblue
-    
+
+
+.Books{
+	position: relative;
+	z-index: 300;
 }
-#DESCRIPTION{display: none;}
->>>>>>> 308477ea823710a0205ae4586e7599a17f82bc45
