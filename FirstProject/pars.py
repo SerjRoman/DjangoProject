@@ -50,6 +50,7 @@ def pars_func():
                 element = driver.find_element(by=By.XPATH,value=dict_xpaths[key][1]).text
                 if '\n' in element:
                     element = element.replace('\n',' ')
+                dict_elements['DESCRIPTION_SHORT'] = element[0:10]
             elif key == 'RATING':
                 element = driver.find_element(by=By.XPATH,value=dict_xpaths[key]).text
                 if len(element) == 0:
@@ -69,15 +70,17 @@ def pars_func():
         dict_db[url] = dict_elements
     driver.quit()
     return dict_db
-# dict_db = pars_func()
+dict_db = pars_func()
 def add_pars_to_db(name_table):
+    connection = sqlite3.connect("db.sqlite3")
+    cursor = connection.cursor()
+    cursor.execute('DELETE FROM '+name_table)
     for key_url in dict_db.keys():
         tuple_values = dict_db[key_url].values()
-        connection = sqlite3.connect("db.sqlite3")
-        cursor = connection.cursor()
-        cursor.execute('INSERT INTO '+name_table+' (NAME,PRICE,RAITING,IMAGE,AUTHOR,DESCRIPTION,DATE,COUNT_RAITING) VALUES (?,?,?,?,?,?,?,?);', tuple(tuple_values) )
+        
+        cursor.execute('INSERT INTO '+name_table+' (NAME,PRICE,RAITING,IMAGE,AUTHOR,DESCRIPTION_SHORT,DESCRIPTION,DATE,COUNT_RAITING) VALUES (?,?,?,?,?,?,?,?,?);', tuple(tuple_values) )
         connection.commit()
-        connection.close()
+    connection.close()
 add_pars_to_db('FirstApp_book')
 def read_pars_from_db(name_table):
     try:

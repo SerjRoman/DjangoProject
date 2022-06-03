@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
 	background: #e0e3e5;
 	font-family: "Roboto", sans-serif, Helvetica, Arial;
@@ -177,3 +178,10 @@ body{
 		display: none;
 	}
 } 
+=======
+body {
+    background-color: cornflowerblue
+    
+}
+#DESCRIPTION{display: none;}
+>>>>>>> 308477ea823710a0205ae4586e7599a17f82bc45

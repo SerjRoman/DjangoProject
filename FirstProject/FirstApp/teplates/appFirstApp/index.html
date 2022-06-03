@@ -3,6 +3,7 @@
 
 
 {% block content %}
+<<<<<<< HEAD
 ГЛАВНАЯfefewfewfwefewfwefew
     {{book}}
     <ul>   
@@ -18,6 +19,18 @@
                 <input type="button" onclick="clickbutton(obj)" value="Нажми, если думаешь что Артем полезный">
                 <img src = {{obj.IMAGE}}>
             <li>
+=======
+ГЛАВНАЯ
+{% for obj in book %}
+    {%if obj.NAME != None and obj.AUTHOR != None and obj.DESCRIPTION != None and obj.IMAGE != None%}
+        <li>
+            <br>
+            {{obj.NAME}} <br>
+            {{obj.AUTHOR}}<br>
+            <input type="button" onclick="clickbutton()" value="Нажми, если думаешь что Артем полезный">
+            <img src = {{obj.IMAGE}}>
+        <li>
+>>>>>>> 308477ea823710a0205ae4586e7599a17f82bc45
 
         {%endif%}
     {% endfor %}
