@@ -7,4 +7,5 @@ def father(request):
     return render(request, 'appFirstApp/father.html', {'book': book})
 
 def index(request):
-    return render(request, 'appFirstApp/index.html')
+    book = Book.objects.all()
+    return render(request, 'appFirstApp/index.html', {'book': book})

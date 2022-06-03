@@ -3,17 +3,23 @@
 
 
 {% block content %}
-ГЛАВНАЯ
-{% for obj in book %}
-    {%if obj.NAME != None and obj.AUTHOR != None and obj.DESCRIPTION != None and obj.IMAGE != None%}
-        <li>
-            <br>
-            {{obj.NAME}} <br>
-            {{obj.AUTHOR}}<br>
-            <input type="button" onclick="clickbutton(obj)" value="Нажми, если думаешь что Артем полезный">
-            <img src = {{obj.IMAGE}}>
-        <li>
+ГЛАВНАЯfefewfewfwefewfwefew
+    {{book}}
+    <ul>   
+    {% for obj in book %}
+    dwadwdawdawdddddddddddddddddddddddddddddddddddddddddd
+    
+    
+        {%if obj.NAME != None and obj.AUTHOR != None and obj.DESCRIPTION != None and obj.IMAGE != None%}
+            <li>
+                <br>
+                {{obj.NAME}} <br>
+                {{obj.AUTHOR}}<br>
+                <input type="button" onclick="clickbutton(obj)" value="Нажми, если думаешь что Артем полезный">
+                <img src = {{obj.IMAGE}}>
+            <li>
 
-    {%endif%}
-{% endfor %}
+        {%endif%}
+    {% endfor %}
+    </ul>
 {% endblock %}

@@ -4,6 +4,6 @@ from FirstApp.views import index, father
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', father),
+    path('', father, name='main'),
     path('index/', index, name='index'), 
 ]
