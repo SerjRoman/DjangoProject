@@ -10,15 +10,24 @@
     <div id="content">  
         <ul>   
         {% for obj in book %}
-     
             {%if obj.NAME != None and obj.AUTHOR != None and obj.DESCRIPTION != None and obj.IMAGE != None%}
-                <li>
-                    {{obj.NAME}} <br>
-                    {{obj.AUTHOR}}<br>
-                    <input type="button" onclick="clickbutton(obj)" value="Нажми, если думаешь что Артем полезный">
-                    <img src = {{obj.IMAGE}}>
-                <li>
-                
+                <a id="NAME">
+                    Имя: {{obj.NAME}    }
+                </a>
+                <a id="AUTHOR">
+                    Автор: {{obj.AUTHOR}}
+                </a>
+                <a id="DESCRIPTION_SHORT">
+                    Описание: {{obj.DESCRIPTION_SHORT}}
+                    <span id="dots">...</span>
+                </a>
+                <a id="DESCRIPTION">
+                    {{obj.DESCRIPTION}}
+                </a>
+                <button  id="BUTTON_DESCRIPTION" onclick="clickbutton()">
+                    Нажми, если хочешь увидеть описание Артема
+                </button>
+
             {%endif%}
         {% endfor %}
         </ul>
@@ -26,4 +35,6 @@
 </div>
     
     
+<script type="text/javascript" src="/static/js/main.js"></script>
+
 {% endblock %}
