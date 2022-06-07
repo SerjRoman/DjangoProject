@@ -3,36 +3,27 @@
 
 
 {% block content %}
-<<<<<<< HEAD
-ГЛАВНАЯfefewfewfwefewfwefew
-    {{book}}
-    <ul>   
-    {% for obj in book %}
-    dwadwdawdawdddddddddddddddddddddddddddddddddddddddddd
+<div class="main">
+    <!-- <span>
+        <h1>Тут будет название</h1>
+    </span> -->
+    <div id="content">  
+        <ul>   
+        {% for obj in book %}
+     
+            {%if obj.NAME != None and obj.AUTHOR != None and obj.DESCRIPTION != None and obj.IMAGE != None%}
+                <li>
+                    {{obj.NAME}} <br>
+                    {{obj.AUTHOR}}<br>
+                    <input type="button" onclick="clickbutton(obj)" value="Нажми, если думаешь что Артем полезный">
+                    <img src = {{obj.IMAGE}}>
+                <li>
+                
+            {%endif%}
+        {% endfor %}
+        </ul>
+    </div>
+</div>
     
     
-        {%if obj.NAME != None and obj.AUTHOR != None and obj.DESCRIPTION != None and obj.IMAGE != None%}
-            <li>
-                <br>
-                {{obj.NAME}} <br>
-                {{obj.AUTHOR}}<br>
-                <input type="button" onclick="clickbutton(obj)" value="Нажми, если думаешь что Артем полезный">
-                <img src = {{obj.IMAGE}}>
-            <li>
-=======
-ГЛАВНАЯ
-{% for obj in book %}
-    {%if obj.NAME != None and obj.AUTHOR != None and obj.DESCRIPTION != None and obj.IMAGE != None%}
-        <li>
-            <br>
-            {{obj.NAME}} <br>
-            {{obj.AUTHOR}}<br>
-            <input type="button" onclick="clickbutton()" value="Нажми, если думаешь что Артем полезный">
-            <img src = {{obj.IMAGE}}>
-        <li>
->>>>>>> 308477ea823710a0205ae4586e7599a17f82bc45
-
-        {%endif%}
-    {% endfor %}
-    </ul>
 {% endblock %}
