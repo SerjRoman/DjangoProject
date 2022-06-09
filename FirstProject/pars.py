@@ -1,11 +1,15 @@
 import os
-from django.db import connection
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import sqlite3 
+import random
+
+low_case = list('qwertyuiopasdfghjklzxcvbnm')
+high_case = list('QWERTYUIOPASDFGHJKLZXCVBNM')
+number_case = list('1234567890')
 
 path_to_driver = os.path.join(os.path.abspath(__file__+'/..'),'chromedriver.exe')
 driver = webdriver.Chrome(path_to_driver) 
@@ -20,14 +24,16 @@ with open('uri.txt','r') as file:
 domen_name = 'https://www.harlequin.com/shop/books/'
 
 dict_xpaths = {
+                
                 'NAME':'//div[@class="book-detail-info-large"]/h1[@class="book-page__book-title"]',
-                'PRICE':'//div[@class="format-button-list"]',
-                'RAITING':'//span[@class="rating-text"]',
-                'IMAGE':'//img[@class="book-page-cover-image"]',
                 'AUTHOR':'//div[@class="book-detail-info-large"]//child::div[1]',
+                'RAITING':'//span[@class="rating-text"]',
+                'PRICE':'//div[@class="format-button-list"]',
+                'IMAGE':'//img[@class="book-page-cover-image"]',
                 'DESCRIPTION':['//button[@class="book-page-back-of-book-read-toggle"]','//div[@class="book-page-back-of-book__content"]'],
                 'DATE':'//div[@class="book-page-date"][2]', 
-                'COUNT_RAITING':'//span[@class="ratings-by"]'          
+                'COUNT_RAITING':'//span[@class="ratings-by"]',
+                'SEARCH_ID':'',         
 }
 dict_db = {}
 
@@ -42,7 +48,16 @@ def pars_func():
         except TimeoutException:
             print('Вау, здесь была ошибка')
         for key in dict_xpaths.keys():
-            if key == 'IMAGE':
+            if key == 'SEARCH_ID':
+                for i in range(20):
+                    list_cases = [high_case,low_case,number_case]
+                    random.shuffle(list_cases)
+                    list_choice = random.choice(list_cases)
+                    random.shuffle(list_choice)
+                    dict_xpaths['SEARCH_ID'] += random.choice(list_choice)
+                element = dict_xpaths['SEARCH_ID']
+                dict_xpaths['SEARCH_ID'] = ''
+            elif key == 'IMAGE':
                 element = driver.find_element(by=By.XPATH,value=dict_xpaths[key]).get_attribute('src')
             elif key == 'DESCRIPTION':
                 button = driver.find_element(by=By.XPATH,value=dict_xpaths[key][0])
@@ -77,8 +92,7 @@ def add_pars_to_db(name_table):
     cursor.execute('DELETE FROM '+name_table)
     for key_url in dict_db.keys():
         tuple_values = dict_db[key_url].values()
-        
-        cursor.execute('INSERT INTO '+name_table+' (NAME,PRICE,RAITING,IMAGE,AUTHOR,DESCRIPTION_SHORT,DESCRIPTION,DATE,COUNT_RAITING) VALUES (?,?,?,?,?,?,?,?,?);', tuple(tuple_values) )
+        cursor.execute('INSERT INTO '+name_table+' (NAME,AUTHOR,RAITING,PRICE,IMAGE,DESCRIPTION_SHORT,DESCRIPTION,DATE,COUNT_RAITING,SEARCH_ID) VALUES (?,?,?,?,?,?,?,?,?,?);', tuple(tuple_values) )
         connection.commit()
     connection.close()
 add_pars_to_db('FirstApp_book')
@@ -97,4 +111,4 @@ def read_pars_from_db(name_table):
             print(data)
     except:
         pass
-read_pars_from_db('FirstApp_book')
+# read_pars_from_db('FirstApp_book')
