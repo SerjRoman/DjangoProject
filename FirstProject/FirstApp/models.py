@@ -11,6 +11,7 @@ class Book(models.Model):
     DESCRIPTION = models.TextField(blank=True, null=True) # blank = True - данное поле может быть пустым
     DATE = models.CharField(max_length=255,blank=True, null=True)
     COUNT_RAITING = models.CharField(max_length=255,blank=True, null=True)
+    SEARCH_ID = models.CharField(max_length=255,blank=True, null=True)
 
     def __str__(self):
         
