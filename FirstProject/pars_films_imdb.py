@@ -28,7 +28,6 @@ dict_xpaths = {
                 'NAME':'//div[@class="sc-dae4a1bc-0 gwBsXc"]',
                 'AUTHOR':'//ul[@class="ipc-metadata-list ipc-metadata-list--dividers-all sc-18baf029-10 jIsryf ipc-metadata-list--base"]/li[2]',
                 'RAITING':'//span[@class="sc-7ab21ed2-1 jGRxWM"]',
-                'PRICE':'',
                 'IMAGE':'//div[@class="ipc-poster ipc-poster--baseAlt ipc-poster--dynamic-width sc-aae05e05-0 fBcbjp celwidget ipc-sub-grid-item ipc-sub-grid-item--span-2"]/a',
                 'DESCRIPTION':'//div[@class="ipc-overflowText ipc-overflowText--pageSection ipc-overflowText--height-long ipc-overflowText--long ipc-overflowText--base"]',
                 'DATE':'//li[@data-testid="title-details-releasedate"]//div[@class="ipc-metadata-list-item__content-container"]', 
@@ -72,8 +71,6 @@ def pars_func():
                     element = '0'
                 if '\n' in element:
                     element = element.replace('\n',' ')
-            elif key == 'PRICE':
-                element = ''
             elif key == 'COUNT_RAITING':
                 element = driver.find_element(by=By.XPATH,value=dict_xpaths[key]).text
                 if 'M' in element:
@@ -94,10 +91,10 @@ def add_pars_to_db(name_table):
     cursor.execute('DELETE FROM '+name_table)
     for key_url in dict_db.keys():
         tuple_values = dict_db[key_url].values()
-        cursor.execute('INSERT INTO '+name_table+' (NAME,AUTHOR,RAITING,PRICE,IMAGE,DESCRIPTION_SHORT,DESCRIPTION,DATE,COUNT_RAITING,SEARCH_ID) VALUES (?,?,?,?,?,?,?,?,?,?);', tuple(tuple_values) )
+        cursor.execute('INSERT INTO '+name_table+' (NAME,AUTHOR,RAITING,IMAGE,DESCRIPTION_SHORT,DESCRIPTION,DATE,COUNT_RAITING,SEARCH_ID) VALUES (?,?,?,?,?,?,?,?,?);', tuple(tuple_values) )
         connection.commit()
     connection.close()
-# add_pars_to_db('FirstApp_book')
+add_pars_to_db('FirstApp_book')
 print(dict_db)
 def read_pars_from_db(name_table):
     try:
@@ -107,7 +104,7 @@ def read_pars_from_db(name_table):
         cursor.execute(command_take_id)
         count_id = cursor.fetchall()
         for i in range(len(count_id)):
-            command_take_data = 'SELECT NAME,PRICE,RAITING,IMAGE,AUTHOR,DESCRIPTION,DATE,COUNT_RAITING from FirstApp_book where id = ?'
+            command_take_data = 'SELECT NAME,RAITING,IMAGE,AUTHOR,DESCRIPTION,DATE,COUNT_RAITING from FirstApp_book where id = ?'
             id = i+1
             cursor.execute(command_take_data,(id,)) 
             data = cursor.fetchall()

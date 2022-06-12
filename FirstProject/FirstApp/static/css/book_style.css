@@ -1,0 +1,45 @@
+img {
+	display: block;
+	width: 110px;
+	
+	
+}
+.block {
+	display: inline-block;
+	width: 100%;
+	background-color: #ccc;	
+}
+.conteiner{
+    display: flex;
+    box-sizing: border-box;
+    border: black;
+    border: 10px;    
+}
+
+.place {
+    width: 5%;
+    font-size: 20px;
+    position: relative;
+}
+.content {
+	position: relative;
+	top: 70px;
+	background: #7624e9;
+	width: 50%;
+	z-index: 800;
+	padding: 80px;
+	margin: 0 0 0 25%;
+    
+	
+}
+.gg{
+	position: relative;
+	display: block;
+	margin: 0;
+	padding: 0;
+	list-style: none;	
+}
+.info_list {
+	position: inherit;
+	width: 10%;
+}
