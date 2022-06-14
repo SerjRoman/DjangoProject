@@ -1,41 +1,41 @@
 {% extends 'appFirstApp/index.html'%}
 {% load static%}
 
-{% block title %}ffefefe{% endblock %}
+{% block title %}Best books{% endblock %}
 {% block links %}<link rel="stylesheet" href="{% static 'css/book_style.css'%}">{%endblock%}
 
 {% block content %}
 <body>
     
 
-        <div class="content" href="% url 'main' %"">  
-            <div class="gg">
+        <div class="content">             
                 {% for obj in book %}
                     {%if obj.NAME != None and obj.AUTHOR != None and obj.DESCRIPTION != None and obj.IMAGE != None%}
-                        <div class="block">                       
-                            <div class="conteiner">
-                                <div class="place">1</div>
+                        <div class="block" >
+                            <a href="{{ obj.get_absolute_url }}">                          
+                                <div class="conteiner">
+                                    <div class="place">
+                                        <div class="number">
+                                            <span>{{obj.id}}</span>
+                                        </div>
+                                    </div>
 
-                                <img src = {{obj.IMAGE}}>
+
+                                    <img src = {{obj.IMAGE}}>
 
 
-                                <span class="info_list">
-                                    {{obj.COUNT_RAITING}}
-                                    {{obj.NAME}}
-                                    {{obj.AUTHOR}}
-                                </span>                     
-                            </div>
-                                    <!-- <span id="dots">...</span>
-                                    
-                                 <button  id="BUTTON_DESCRIPTION" onclick="clickbutton()">
-                                    Нажми, если хочешь увидеть описание Артема
-                                </button>        -->
+                                    <span class="info_list">
+                                        <h1>{{obj.NAME}}</h1>
+                                        <h2> {{obj.AUTHOR}}</h2> 
+                                   
+                                    </span>                     
+                                </div>                                   
                             </a> 
                         </div>
 
                     {%endif%}
                 {% endfor %}
-            </div>
+            
         </div>
     
 
