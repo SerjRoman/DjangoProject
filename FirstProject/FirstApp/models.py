@@ -13,7 +13,7 @@ class Book(models.Model):
     DATE = models.CharField(max_length=255,blank=True, null=True)
     COUNT_RAITING = models.CharField(max_length=255,blank=True, null=True)
     SEARCH_ID = models.CharField(max_length=255,blank=True, null=True)
-    CAT = models.ForeignKey('Category', on_delete=models.PROTECT) #запрещаем удалять категориии модели Book
+    CAT = models.ForeignKey('Category', on_delete=models.PROTECT, null=True) #запрещаем удалять категориии модели Book
 
     def __str__(self):       
         return f'{self.NAME}'
