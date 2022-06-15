@@ -29,7 +29,11 @@ img {
 	width: 100%;
 	z-index: 800;
 	padding: 80px;
-	margin: 0 0 0 25%;	
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+		
 }
 
 .info_list {
