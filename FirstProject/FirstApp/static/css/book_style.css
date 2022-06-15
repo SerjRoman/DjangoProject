@@ -24,9 +24,9 @@ img {
 }
 .content {
 	position: relative;
-	top: 70px;
+	top: 60px;
 	background: #7624e9;
-	width: 50%;
+	width: 100%;
 	z-index: 800;
 	padding: 80px;
 	margin: 0 0 0 25%;	

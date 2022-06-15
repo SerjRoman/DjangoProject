@@ -11,22 +11,43 @@
     {% block links %}{%endblock%}
     <link rel="stylesheet" href="{% static 'css/main.css'%}">
     <link rel="shortcut icon" href="{%static 'img/favicon/Earth.svg'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      
 
 </head>
     <body>
         <div id="wrapper", class="page">
             <header>                
-                <div id="head">
-                    <div class="ico">
+                <div class="head">
+                    <div class="logo">
                         <a href="{% url 'main' %}">
-                            <img class="gg" src="{% static 'img/Logikahub.jpg' %}" alt="Logo">
+                            <img  src="{% static 'img/Logikahub.jpg' %}" alt="Logo">
                         </a>
                     </div>
+                    <!-- <div class="search">
+                        <input type="text" name="text" class="search_form" placeholder="Search here!">
+                        <input type="submit" name="submit" class="submit" value="Search">
+ 
+                    </div> -->
+                    <div class="search-box">
+                        <input type="text" name="" class="search-txt" placeholder="Type to search"/>
+                        <a class="search-btn" href="#">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <div class="profile">
+                        <a href="{% url 'main'%}">
+                            <ion-icon class="basic profile_ico" name="person-circle-outline"></ion-icon>
+                        </a>
+                    </div>
+
+                    
                 </div>
+
             </header>
 
-            <div id="menuVertical">
+            <!-- <div id="menuVertical">
                 <ul>
                     <li>
                         <a href="{% url 'main'%}">
@@ -70,13 +91,131 @@
                     <div class="footer">
                         Tops @2022 
                         powered by my team 
-                        <!-- <a href="#"></a> -->
-                    </div>
+                         <a href="#"></a> -->
+                    <!-- </div>
                 </div>
-            </div>
+            </div> --> 
             
             
-            
+            <nav class="main-menu">
+                <ul>
+                    <li>
+                        <a href="{% url 'main'%}">
+                            <ion-icon class="basic" name="home-outline"></ion-icon>
+                            <span class="text">
+                                MainPage
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="{% url 'tops'%}">
+                            <ion-icon class="basic" name="trophy-outline"></ion-icon>
+                            <span class="text">
+                                Tops
+                            </span>
+                        </a>
+                        <ul class="grand-menu">
+                            <li>
+                                <a href="{% url 'books'%}">
+                                    <span class="text">
+                                        Books
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'books'%}">
+                                    <span class="text">
+                                        Films
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'books'%}">
+                                    <span class="text">
+                                        Сrypto
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#">
+                            <ion-icon class="basic" name="person-circle-outline"></ion-icon>
+                            <span class="text">
+                                All
+                            </span>
+                        </a>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#">
+                            <ion-icon class="basic" name="school-outline"></ion-icon>
+                            <span class="text">
+                                Група
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#">
+                            <ion-icon class="basic" name="podium-outline"></ion-icon>
+                            <span class="text">
+                                Рейтинг успішності
+                            </span>
+                        </a>
+                    </li>
+                   
+                    <li>
+                        <a href="#">
+                            <ion-icon class="basic" name="calendar-number-outline"></ion-icon>
+                            <span class="text">
+                                Календар подій
+                            </span>
+                        </a>
+                    </li>
+                  
+                    <li>
+                        <a href="#">
+                            <ion-icon class="basic" name="cube-outline"></ion-icon>
+                            <span class="text">
+                                Наші курси
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#">
+                            <ion-icon class="basic" name="reader-outline"></ion-icon>
+                            <span class="text">
+                                Тестування 
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#">
+                            <ion-icon class="basic" name="mail-unread-outline"></ion-icon>
+                            <span class="text">
+                                Зворотній зв'язок 
+                            </span>
+                        </a>
+                    </li> 
+                </ul>
+                
+                <ul class="logout">
+                    <li>
+                        <a href="#">
+                            <ion-icon class="basic" name="power-outline"></ion-icon>
+                            <span class="text">
+                                Вихід 
+                            </span>
+                        </a>
+                    </li> 
+                </ul>
+            </nav>
             {% block content %}
             {%endblock%}
             
