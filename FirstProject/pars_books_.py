@@ -84,7 +84,12 @@ def pars_func():
                     element = driver.find_element(by=By.XPATH,value=dict_xpaths[key]).text.split(' ...more')[0]
                 if '\n' in element:
                     element = element.replace('\n',' ')
-                dict_elements['DESCRIPTION_SHORT'] = element[0:10]
+                if len(element) >= 350:
+                    dict_elements['DESCRIPTION_SHORT'] = element[0:250]+'...'
+                elif len(element) >= 250:
+                    dict_elements['DESCRIPTION_SHORT'] = element[0:200]+'...'
+                elif len(element) >= 500:
+                    dict_elements['DESCRIPTION_SHORT'] = element[0:440]+'...'
             elif key == 'RATING':
                 element = driver.find_element(by=By.XPATH,value=dict_xpaths[key]).text
                 if len(element) == 0:

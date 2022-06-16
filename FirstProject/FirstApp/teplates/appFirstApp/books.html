@@ -13,25 +13,26 @@
                 {% for obj in book %}
                     {%if obj.NAME != None and obj.AUTHOR != None and obj.DESCRIPTION != None and obj.IMAGE != None%}
                         <div class="block" >
-                            <a href="{{ obj.get_absolute_url }}">                          
+                                                   
                                 <div class="conteiner">
                                     <div class="place">
                                         <div class="number">
                                             <span>{{obj.id}}</span>
                                         </div>
                                     </div>
-
-
                                     <img src = {{obj.IMAGE}}>
+                                    <a href="{{ obj.get_absolute_url }}" class="info_list"> 
+                                        <span class="info_list"> 
+                                            <h1 class="name">{{obj.NAME}}</h1>
+                                            <h2 class="author"> {{obj.AUTHOR}}</h2> 
+                                            <span class="ratings">{{obj.RAITING}} rate by {{obj.COUNT_RAITING}} counts</span>
+                                            <br>
+                                            <span class="description">{{obj.DESCRIPTION_SHORT}}</span>
 
-
-                                    <span class="info_list">
-                                        <!-- <h1>{{obj.NAME}}</h1>
-                                        <h2> {{obj.AUTHOR}}</h2>  -->
-                                   
-                                    </span>                     
+                                        </span>             
+                                    </a>
                                 </div>                                   
-                            </a> 
+                            
                         </div>
 
                     {%endif%}
