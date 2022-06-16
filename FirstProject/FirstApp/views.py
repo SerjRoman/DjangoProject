@@ -24,9 +24,10 @@ def categories(request):
 
 def product_info(request, book_id):
     book = Book.objects.all()
-    return HttpResponse(f"Номер по айди = {book_id}")
-    
-    book = get_object_or_404(Book, pk=book_id)
+    # context = {'book':book_id}
+    return HttpResponse(f'<div class="MENU">{book_id}</div>')
+    # return render(request, 'appFirstApp/product_info.html',context)
+    # book = get_object_or_404(Book, pk=book_id)
 
     
 

@@ -22,20 +22,20 @@ img {
     font-size: 20px;
     position: relative;
 }
+
+
 .content {
 	position: relative;
-	top: 60px;
 	background: #7624e9;
 	width: 100%;
 	z-index: 800;
-	padding: 80px;
-	top: 0;
+	padding: 3% 5% 0 3%;
+	top: 60px;
 	bottom: 0;
 	right: 0;
-	left: 0;
-		
+	left: 42px;  
+	margin: 0;    
 }
-
 .info_list {
 	position: inherit;
 	background-color: aqua;
@@ -61,3 +61,4 @@ img {
 	color: black;
 	
 }
+
