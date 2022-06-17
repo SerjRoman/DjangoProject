@@ -13,7 +13,7 @@ class Book(models.Model):
     DATE = models.CharField(max_length=255,blank=True, null=True)
     COUNT_RAITING = models.CharField(max_length=255,blank=True, null=True)
     SEARCH_ID = models.CharField(max_length=255,blank=True, null=True)
-    CAT = models.ForeignKey('Category', on_delete=models.PROTECT, null=True) #запрещаем удалять категориии модели Book
+    
 
     def __str__(self):       
         return f'{self.NAME}'
@@ -21,5 +21,3 @@ class Book(models.Model):
     def get_absolute_url(self):
         return reverse('book', kwargs={'book_id': self.pk})
 
-class Category(models.Model):
-    name = models.CharField(max_length=255,blank=True, null=True)

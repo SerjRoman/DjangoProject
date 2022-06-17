@@ -1,12 +1,13 @@
 img {
 	display: block;
-	width: 15%;	
+	width: 9%;	
 
 }
 .block {
 	display: inline-block;
 	width: 100%;
-	background-color: #ccc;	
+	background-color: #ccc;
+	margin: 0;	
 }
 .conteiner{
     display: flex;
@@ -22,6 +23,8 @@ img {
 
 
 .content {
+	display: block;
+	box-sizing: border-box;
 	position: relative;
 	background: #7624e9;
 	width: 100%;
@@ -31,7 +34,7 @@ img {
 	bottom: 0;
 	right: 0;
 	left: 42px;  
-	margin: 0;    
+	margin: 0 auto;    
 }
 .info_list {
 	position: inherit;

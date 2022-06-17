@@ -1,0 +1,21 @@
+{% extends 'appFirstApp/index.html'%}
+{% load static%}
+
+{% block title %}{{book.NAME}}{% endblock %}
+{% block links %}<link rel="stylesheet" href="{% static 'css/post_style.css'%}">{%endblock%}
+
+{% block content %}
+<body>  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+        <div class="content">  
+            <img src="{{book.IMAGE}}    " alt="">           
+             
+        </div>
+    
+
+
+    <script type="text/javascript" src="/static/js/main.js"></script>
+</body>
+{% endblock %}
