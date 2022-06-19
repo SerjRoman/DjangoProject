@@ -1,0 +1,14 @@
+{% extends 'appFirstApp/index.html'%}
+{% load static%}
+
+{% block title %}Best books{% endblock %}
+{% block links %}<link rel="stylesheet" href="{% static 'css/book_style.css'%}">{%endblock%}
+
+{% block content%}
+<body>
+    {% for movie in movie_list%}
+        {{movie.description}}
+        
+    {% endfor %}
+</body>
+{% endblock%}

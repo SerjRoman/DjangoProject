@@ -1,16 +1,30 @@
-.body {
-    background-color: black;
-
+img {
+	display: block;
+	width: 30%;	
+	border-radius: 15px
 }
+
 .content {
 	position: relative;
 	background: #7624e9;
 	width: 100%;
 	z-index: 800;
 	padding: 3% 5% 0 3%;
-	top: 60px;
+	top: 0;
 	bottom: 0;
 	right: 0;
-	left: 42px;  
-	margin: 0;    
+	margin: 62px -8px 0 39px;
+}
+.conteiner{
+    display: flex;
+	/* background: orange; */
+    box-sizing: border-box;
+    border: 3px solid black ;
+	margin: 10px;
+	border-radius: 15px
+
+}
+.info_list span{
+	display: block;
+	position: relative;
 }

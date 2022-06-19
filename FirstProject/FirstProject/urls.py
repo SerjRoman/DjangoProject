@@ -1,6 +1,8 @@
 from unicodedata import category
 from django.contrib import admin
-from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path, include
 from FirstApp.views import index, books, categories, tops, post_info
 
 
@@ -13,5 +15,9 @@ urlpatterns = [
     path('tops/', tops, name='tops'), 
     path('all/', categories, name='categories'),
     path('tops/books/', books, name='books'),
-    path('tops/book/<int:book_id>', post_info, name='book'),   
+    path('tops/book/<int:book_id>', post_info, name='book'),
+    path('tops/', include("movies.urls")),   
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
