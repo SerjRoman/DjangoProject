@@ -1,0 +1,83 @@
+.main-menu [type="checkbox"],
+.main-menu label.toggleSubmenu{
+    display: none;
+}
+.main-menu label.toggleMenu{
+    display: none;
+    position: relative;
+    background: rgb(12,12,11); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgb(12,12,11) 0%, rgb(69,72,77) 0%, rgb(12,12,11) 1%, rgb(0,0,0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgb(12,12,11) 0%,rgb(69,72,77) 0%,rgb(12,12,11) 1%,rgb(0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgb(12,12,11) 0%,rgb(69,72,77) 0%,rgb(12,12,11) 1%,rgb(0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0c0c0b', endColorstr='#000000',GradientType=0 );
+    color: whitesmoke;
+    
+    padding: 15px 40px;
+    border-left: 1px solid whitesmoke;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    
+}
+.main-menu label.toggleMenu .fa{ 
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 18px;
+}
+@media all and (max-width: 800px){
+    .main-menu{
+        overflow: hidden;
+    }
+    .main-menu ul{
+        display: block;
+        max-height: 0;
+        transition: max-height 2s;
+    }
+    .main-menu label.toggleMenu{
+        display: block;
+    }
+    input.toggleMenu:checked + label.toggleMenu{
+        background: black;
+        color: whitesmoke;
+    }   
+    input.toggleMenu:checked ~ ul,
+    input.toggleSubmenu:checked ~ ul{
+        display: block;
+        position: relative;  
+        max-height: 5000px;
+        transition: max-height 3s ease-in;
+    }
+    .main-menu label.toggleSubmenu{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;    
+    }
+    
+    input.toggleSubmenu:checked  ~ a{
+        background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 50%, #ededed 51%, #ffffff 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+        color: black;
+    }  
+    .main-menu label.toggleSubmenu .fa:before{
+        content: "\f0d7";
+        color: whitesmoke;
+    }
+    .main-menu label.toggleSubmenu .fa{
+        position: absolute;
+        top: 15px;
+        right: 30px;
+    }
+    .main-menu input.toggleSubmenu:checked ~ label.toggleSubmenu .fa::before{
+        content: "\f0d8";
+        color: black;
+       
+    }
+}

@@ -6,17 +6,17 @@ from django.urls import path, include
 from FirstApp.views import index, books, categories, tops, post_info
 
 
-product = "Ubrilded Cowboy"
 
-product_link = (product.replace(' ', '_')+ "/").lower() 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='main'),
-    path('tops/', tops, name='tops'), 
-    path('all/', categories, name='categories'),
-    path('tops/books/', books, name='books'),
-    path('tops/book/<int:book_id>', post_info, name='book'),
-    path('tops/', include("movies.urls")),   
+    # path('tops/', tops, name='tops'), 
+    # path('all/', categories, name='categories'),
+    # path('tops/books/', books, name='books'),
+    path('book/<int:book_id>', post_info, name='book'),
+    path('', include("movies.urls")), 
+    path('', include("FirstApp.urls")),  
 ]
 
 if settings.DEBUG:

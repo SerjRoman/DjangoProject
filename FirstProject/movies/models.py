@@ -1,3 +1,4 @@
+from audioop import reverse
 from distutils.command.upload import upload
 from email.mime import image
 from pyexpat import model
@@ -52,9 +53,8 @@ class Genre(models.Model):
 class Movie(models.Model):
 
     title = models.CharField("Title", max_length=100)
-    tagline = models.CharField("Tag", max_length=100, default='')
     description = models.TextField("About")
-    poster = models.ImageField("Poster", upload_to = "movies/")
+    poster = models.ImageField("Poster", upload_to="movies/")
     year = models.PositiveSmallIntegerField("Realize", default=2019)
     country = models.CharField("Country", max_length=100)
     directors = models.ManyToManyField(Actor,  verbose_name = "director", related_name="film_director")
@@ -62,9 +62,7 @@ class Movie(models.Model):
     genres = models.ManyToManyField(Genre, verbose_name = "genre")
     world_premiere = models.DateField("Date of Premiere in the world", default=date.today)
     budget = models.PositiveIntegerField("Budget", default=0, help_text="only in dollars")
-    fees_in_usa = models.PositiveIntegerField(
-        "Fees in USA", default=0, help_text="only in dollars"
-    )
+
     fees_in_world = models.PositiveIntegerField(
         "Fees in World", default=0, help_text="only in dollars"
     )
@@ -76,10 +74,15 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse("movie_detail", kwargs={"slug": self.url})
 
     class Meta():
         verbose_name = "Film"
         verbose_name_plural = "Films"
+    
+
     
 class MovieShots(models.Model):
 
@@ -128,7 +131,7 @@ class Rewiews(models.Model):
     movie = models.ForeignKey(Movie, verbose_name="film", on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.star} - {self.movie}"
+        return f"{self.name} - {self.movie}"
 
     class Meta:
         verbose_name = "Review"

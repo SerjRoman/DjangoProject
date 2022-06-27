@@ -14,6 +14,7 @@ class Book(models.Model):
     COUNT_RAITING = models.CharField(max_length=255,blank=True, null=True)
     SEARCH_ID = models.CharField(max_length=255,blank=True, null=True)
     
+    
 
     def __str__(self):       
         return f'{self.NAME}'
