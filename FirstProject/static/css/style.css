@@ -625,6 +625,9 @@ ul.tic-info li {
     margin: 0;
 }
 
+.none {
+    list-style: none
+}
 /*-- //features --*/
 /*-- /New-Arrivals --*/
 .product-shoe-info {
@@ -891,9 +894,9 @@ ul.w3layouts-box-list li {
 
 }
 
-.desc1-left {
+/* .desc1-left {
     border: 1px solid #ddd;
-}
+} */
 
 .desc1-right h3 {
     text-shadow: 0 1px 0 #ffffff;
@@ -1266,12 +1269,29 @@ a.move-top span {
 }
 
 /*-- //to-top --*/
-
+@media (min-width:1390px){
+    .col-md-6 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%; /*change3*/
+        /* flex: 0 0 50%; */
+        max-width: 28%;
+    }
+    
+}
+@media (min-width:1890px){
+    .col-md-6 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%; /*change3*/
+        /* flex: 0 0 50%; */
+        max-width: 20%;
+    }
+    
+}
 @media(max-width:1366px) {
     .main-banner {
         min-height: 38em;
     }
-
+    
     .banner-info {
         padding: 16em 0 0em 3em;
         width: 38%;

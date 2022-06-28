@@ -480,6 +480,12 @@ mark,
 .img-fluid {
   max-width: 100%;
   height: auto;
+  width: 300px;
+}
+.book_photo {
+  max-width: 100%;
+  height: auto;
+  width: 200px;
 }
 .user{
   max-width: 100%;
@@ -1115,9 +1121,9 @@ pre code {
   }
   .col-md-6 {
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    max-width: 50%;
+    -ms-flex: 0 0 50%; /*change3*/
+    /* flex: 0 0 50%; */
+    max-width: 36%;
   }
   .col-md-7 {
     -webkit-box-flex: 0;

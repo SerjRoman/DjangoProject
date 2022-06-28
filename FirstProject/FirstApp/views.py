@@ -1,6 +1,7 @@
 from django import views
 from django.shortcuts import get_object_or_404, render
 from .models import Book
+from movies.models import Category
 from django.http import HttpResponse
 # Create your views here.
 from django.views.generic.base import View
@@ -10,19 +11,8 @@ from .models import Book
 
 # Create your views here.
 
-class BooksView(ListView):
-    # model = Movie
-    # queryset = Movie.objects.filter(draft=False)
-    # template_name = "movies/movies.html"
-    def get(self, request):
-        books = Book.objects.all() 
-        return render(request, 'books/books_list.html', {"books_list": books})
+  
         
-class BookDetailView(View):    
-    def get(self, request, slug):
-        books = Book.objects.get(url=slug)
-        return render(request, "books/book_detail.html", {"book": books})
-
 
 
 
@@ -32,8 +22,13 @@ class BookDetailView(View):
 
 
 def index(request):
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super().get_context_data(*args, **kwargs)
+    #     context["categories"] = Category.objects.all()
+    #     return context
     book = Book.objects.all()
-    return render(request, 'appFirstApp/index.html', {'book': book})
+    return render(request, 'FirstApp/index.html', {'book': book})
+    
 
 def tops(request):
     book = Book.objects.all()

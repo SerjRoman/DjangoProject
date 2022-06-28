@@ -14,9 +14,9 @@ urlpatterns = [
     # path('tops/', tops, name='tops'), 
     # path('all/', categories, name='categories'),
     # path('tops/books/', books, name='books'),
-    path('book/<int:book_id>', post_info, name='book'),
+    # path('book/<int:book_id>', post_info, name='book'),
     path('', include("movies.urls")), 
-    path('', include("FirstApp.urls")),  
+    path('', include("books.urls")),  
 ]
 
 if settings.DEBUG:
