@@ -1,3 +1,4 @@
+from audioop import reverse
 from pickle import FALSE
 from re import template
 from django.shortcuts import redirect, render
@@ -25,12 +26,14 @@ class MovieDetailView(View):
     
 
 class AddReview(View):
-    def post(self, request, slug):
+    def post(self, request, pk):
         form = ReviewForm(request.POST)
-        movie = Movie.objects.get(id=slug)
+        movie = Movie.objects.get(id=pk)
         if form.is_valid():
             form = form.save(commit=False)
+            if request.POST.get("parent", None):
+                form.parent_id = int(request.POST.get("parent"))
             form.movie = movie
             form.save()
-        print(id)
+
         return redirect("/")

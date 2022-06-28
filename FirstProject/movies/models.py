@@ -72,6 +72,10 @@ class Movie(models.Model):
     url = models.SlugField(max_length=160, unique=True) # unique - Уникальное поле
     draft = models.BooleanField("Draft", default=False)
 
+
+    def get_review(self):
+        return self.rewiews_set.filter(parent__isnull=True)
+        
     def __str__(self):
         return self.title
     
